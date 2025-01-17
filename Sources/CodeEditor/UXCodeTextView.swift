@@ -245,6 +245,7 @@ final class UXCodeTextView: UXTextView {
     guard let highlightr = highlightr,
           highlightr.setTheme(to: newTheme.rawValue),
           let theme      = highlightr.theme else { return false }
+    theme.setCodeFont(.monospacedSystemFont(ofSize: theme.codeFont.pointSize, weight: .regular))
     self.backgroundColor = theme.themeBackgroundColor
     if let font = theme.codeFont, font !== self.font { self.font = font }
     return true
